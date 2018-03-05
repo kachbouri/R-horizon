@@ -1,0 +1,28 @@
+install.packages("twitteR")
+require(twitteR)
+install.packages("ROAuth")
+library(twitteR)
+library(ROAuth)
+require(RCurl)
+require(bitops)
+library(bitops)
+library(RCurl)
+reqURL <- "https://api.twitter.com/oauth/request_token"
+
+accessURL <- "http://api.twitter.com/oauth/access_token"
+
+authURL <- "http://api.twitter.com/oauth/authorize"
+
+consumerKey <- "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+consumerSecret <- "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+twitCred <- OAuthFactory$new(consumerKey=consumerKey,consumerSecret=consumerSecret,requestURL=reqURL,accessURL=accessURL,authURL=authURL)
+
+download.file(url="http://curl.haxx.se/ca/cacert.pem", destfile="cacert.pem")
+
+twitCred$handshake(cainfo="cacert.pem")
+%% enter your PIN from your Twitter authorization page
+registerTwitterOAuth(twitCred)
+ 
+ %% get your R documentation from here:: https://cran.r-project.org/web/packages/twitteR/twitteR.pdf
