@@ -1,2 +1,2 @@
-# R-horizon
-R algorithm and mining
+# R-twitter-connection
+Twitter Authentication with R
